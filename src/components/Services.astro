@@ -1,0 +1,131 @@
+---
+const services = [
+  {
+    title: "Precision Consulting",
+    desc: "Bespoke strategic architectures for global maritime leaders.",
+    id: "01",
+  },
+  {
+    title: "Native Engineering",
+    desc: "High-fidelity cross-platform ecosystems built for resilience.",
+    id: "02",
+  },
+  {
+    title: "Systems Intelligence",
+    desc: "Advanced telemetry and encrypted fleet management solutions.",
+    id: "03",
+  },
+  {
+    title: "Refined Experience",
+    desc: "Crafting digital interfaces that command professional attention.",
+    id: "04",
+  },
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="services-header">
+      <span class="eyebrow">CAPABILITY SPECTRUM</span>
+      <h2 class="section-title">
+        Architecting <br />
+        <span class="italic text-accent">Technical Resillience</span>
+      </h2>
+    </div>
+
+    <div class="services-list">
+      {
+        services.map((service) => (
+          <div class="service-node reveal-up">
+            <div class="node-header">
+              <span class="node-id text-accent">{service.id}</span>
+              <h3 class="node-title">{service.title}</h3>
+            </div>
+            <p class="node-desc text-muted">{service.desc}</p>
+            <div class="node-line" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-header {
+    margin-bottom: 8rem;
+    text-align: left;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: -2px;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem 8rem;
+  }
+
+  .service-node {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .node-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .node-id {
+    font-size: 0.8rem;
+    font-weight: 900;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 2px;
+  }
+
+  .node-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+  }
+
+  .node-desc {
+    font-size: 1rem;
+    max-width: 400px;
+    line-height: 1.6;
+  }
+
+  .node-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .service-node:hover .node-line {
+    width: 100%;
+  }
+
+  @media (max-width: 991px) {
+    .services-list {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+  }
+</style>

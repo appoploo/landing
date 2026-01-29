@@ -1,0 +1,180 @@
+---
+const { activePage } = Astro.props;
+
+const navItems = [
+  { name: "Expertise", href: "/services", id: "services" },
+  { name: "Intelligence", href: "/products", id: "products" },
+  { name: "Research", href: "/research", id: "research" },
+];
+---
+
+<header class="header-pill glass-panel">
+  <a href="/" class="logo">
+    <span class="logo-text">APPOPLOO</span>
+    <div class="logo-dot"></div>
+  </a>
+
+  <nav class="nav">
+    <ul class="nav-list">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={["nav-link", { active: activePage === item.id }]}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <div class="header-action">
+    <a
+      href="/contact"
+      class:list={["btn-sm", { active: activePage === "contact" }]}
+    >
+      <span class="btn-text">Enquire</span>
+    </a>
+  </div>
+</header>
+
+<style>
+  .header-pill {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 600px;
+    z-index: 1000;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 100px;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .header-pill.scrolled {
+    top: 1rem;
+    background: rgba(3, 3, 4, 0.95);
+    border-color: var(--border-strong);
+    padding: 0.6rem 2rem;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .logo-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--white);
+  }
+
+  .logo-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+  }
+
+  /* Nav */
+  .nav-list {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--white);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  /* Action */
+  .btn-sm {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.4rem 0;
+  }
+
+  .btn-sm:hover,
+  .btn-sm.active {
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .header-pill {
+      min-width: 90%;
+      padding: 0.75rem 1.5rem;
+      top: 1rem;
+    }
+
+    .nav {
+      display: none;
+    }
+
+    .logo-text {
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector(".header-pill");
+
+  if (header) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  }
+</script>

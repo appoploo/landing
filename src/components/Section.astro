@@ -1,0 +1,209 @@
+---
+const {
+  title,
+  subtitle,
+  image,
+  id,
+  reverse = false,
+  glass = false,
+} = Astro.props;
+---
+
+<section id={id} class:list={["reveal-section", { reverse }]}>
+  <div class="container grid">
+    <div class="content">
+      <div class="content-header">
+        <h2 class="section-title">{title}</h2>
+        <div class="surgical-line accent-line"></div>
+      </div>
+      <p class="section-subtitle text-muted">{subtitle}</p>
+      <div class="section-body">
+        <slot />
+      </div>
+    </div>
+
+    <div class="image-wrapper">
+      <div class="tech-crosshair top-left"></div>
+      <div class="tech-crosshair bottom-right"></div>
+      <div class="image-frame">
+        <div class="image-container">
+          <img
+            src={image}
+            alt={title}
+            class:list={[{ glass }]}
+            loading="lazy"
+          />
+          <div class="image-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 8rem;
+    align-items: center;
+  }
+
+  .reveal-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .reveal-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-section.reverse .grid {
+    direction: rtl;
+  }
+
+  .reveal-section.reverse .content {
+    direction: ltr;
+  }
+
+  /* Typography */
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .surgical-line.accent-line {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: 2.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 3.5rem;
+    line-height: 1.6;
+    max-width: 500px;
+    font-weight: 400;
+  }
+
+  /* Image Area */
+  .image-wrapper {
+    position: relative;
+    padding: 2rem;
+  }
+
+  .image-frame {
+    position: relative;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--glass-border), transparent);
+  }
+
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--secondary);
+  }
+
+  .image-container img {
+    width: 100%;
+    display: block;
+    filter: saturate(0) contrast(1.1) brightness(0.9);
+    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      transparent 20%,
+      rgba(3, 3, 4, 0.4) 100%
+    );
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .reveal-section:hover img {
+    filter: saturate(1) contrast(1.1) brightness(1);
+    transform: scale(1.03);
+  }
+
+  /* Tech Decorators Local */
+  .tech-crosshair {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+  }
+
+  .tech-crosshair::before,
+  .tech-crosshair::after {
+    content: "";
+    position: absolute;
+    background: var(--accent);
+  }
+
+  .tech-crosshair::before {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+  }
+  .tech-crosshair::after {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+  }
+
+  .tech-crosshair.top-left {
+    top: 0;
+    left: 0;
+    transform: translate(50%, 50%);
+  }
+  .tech-crosshair.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 1200px) {
+    .grid {
+      gap: 4rem;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .grid {
+      grid-template-columns: 1fr;
+      text-align: left;
+      gap: 4rem;
+    }
+    .reveal-section.reverse .grid {
+      direction: ltr;
+    }
+
+    .image-wrapper {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+
+  document.querySelectorAll(".reveal-section").forEach((section) => {
+    observer.observe(section);
+  });
+</script>

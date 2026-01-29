@@ -1,0 +1,296 @@
+---
+
+---
+
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <div class="hero-mask"></div>
+    <div class="hero-grid grid-bg"></div>
+  </div>
+
+  <!-- Technical Decorators -->
+  <div class="tech-line vertical left"></div>
+  <div class="tech-line vertical right"></div>
+  <div class="tech-crosshair top-left"></div>
+  <div class="tech-crosshair bottom-right"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="eyebrow-wrapper fade-in">
+        <span class="tech-marker">01</span>
+        <span class="eyebrow">INTEGRATED VESSEL INTELLIGENCE</span>
+      </div>
+
+      <h1 class="hero-title fade-in">
+        Architecting <br />
+        <span class="text-italic">the Digital Fleet</span>
+      </h1>
+
+      <p class="hero-desc fade-in">
+        Global maritime command systems engineered for precision. Expert IT
+        project management and custom tracking solutions.
+      </p>
+
+      <div class="hero-actions fade-in">
+        <a href="/services" class="btn-primary">
+          <span class="btn-inner">Explore Expertise</span>
+        </a>
+        <a href="/products" class="btn-secondary">
+          <span class="btn-inner">View Technologies</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator fade-in">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: url("/appoploo_hero_v2_1769691119605.png") no-repeat center
+      center/cover;
+    transform: scale(1.1); /* Slight zoom for parallax feel if added later */
+  }
+
+  .hero-mask {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(3, 3, 4, 0.4) 0%,
+      rgba(3, 3, 4, 0.85) 60%,
+      #030304 95%
+    );
+    z-index: 1;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.4;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      black 40%,
+      transparent 80%
+    );
+  }
+
+  /* Technical Decorators */
+  .tech-line {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: 2;
+  }
+
+  .tech-line.vertical {
+    top: 0;
+    bottom: 0;
+    width: 1px;
+  }
+
+  .tech-line.vertical.left {
+    left: 10%;
+  }
+  .tech-line.vertical.right {
+    right: 10%;
+  }
+
+  .tech-crosshair {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+  }
+
+  .tech-crosshair::before,
+  .tech-crosshair::after {
+    content: "";
+    position: absolute;
+    background: var(--accent);
+  }
+
+  .tech-crosshair::before {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+  }
+  .tech-crosshair::after {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+  }
+
+  .tech-crosshair.top-left {
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+  }
+  .tech-crosshair.bottom-right {
+    bottom: 10%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .eyebrow-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .tech-marker {
+    font-family: "Inter", monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+  }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 2.5rem;
+  }
+
+  .text-italic {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0.5;
+  }
+
+  .mouse {
+    width: 24px;
+    height: 40px;
+    border: 1px solid var(--white);
+    border-radius: 12px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 2px;
+    height: 6px;
+    background: var(--white);
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 1.5s infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, 15px);
+      opacity: 0;
+    }
+  }
+
+  /* Simple reveal animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .fade-in:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  .fade-in:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tech-line,
+    .tech-crosshair {
+      display: none;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+    }
+  }
+</style>

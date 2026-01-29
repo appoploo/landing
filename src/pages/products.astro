@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ProductsSection from "../components/Products.astro";
+---
+
+<Layout title="Intelligence | Appoploo">
+  <Header activePage="products" />
+  <main class="page-content">
+    <div class="page-header">
+      <h1 class="page-title">Vessel Intelligence</h1>
+      <div class="surgical-line accent-line"></div>
+    </div>
+    <ProductsSection />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .page-content {
+    padding-top: 120px;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 0;
+    margin-bottom: -4rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 2rem;
+  }
+
+  .surgical-line {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 auto;
+  }
+</style>

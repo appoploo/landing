@@ -1,0 +1,154 @@
+---
+
+---
+
+<section id="contact" class="contact">
+  <div class="container grid">
+    <div class="contact-info">
+      <h2 class="section-title">Institutional Inquiries</h2>
+      <p class="section-subtitle text-muted">
+        Connect with our technical team to discuss project synergy or innovation
+        management.
+      </p>
+
+      <div class="info-items">
+        <div class="info-item">
+          <div class="icon-wrap text-accent">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+              ></path><circle cx="12" cy="7" r="4"></circle></svg
+            >
+          </div>
+          <div>
+            <h4 class="text-accent">Direct Communication</h4>
+            <p class="text-muted">+30 2616 008286</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="icon-wrap text-accent">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path><polyline points="22,6 12,13 2,6"></polyline></svg
+            >
+          </div>
+          <div>
+            <h4 class="text-accent">Electronic Correspondence</h4>
+            <p class="text-muted">info@appoploo.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="newsletter-card glass">
+      <h3 class="card-title">Technical Briefing</h3>
+      <p class="text-muted">
+        Receive periodic updates regarding our latest maritime innovations and
+        research projects.
+      </p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Professional email address" required />
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .info-items {
+    display: grid;
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .icon-wrap {
+    padding: 1.2rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-item h4 {
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+  }
+
+  .newsletter-card {
+    padding: 4rem;
+    border: 1px solid var(--glass-border);
+  }
+
+  .card-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .newsletter-form input {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    padding: 1.2rem;
+    border-radius: 4px;
+    color: var(--white);
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+  }
+
+  .newsletter-form input:focus {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  @media (max-width: 991px) {
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    .newsletter-card {
+      padding: 3rem 2rem;
+    }
+  }
+</style>

@@ -1,0 +1,100 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section
+  id="research"
+  title="Cultural Preservation"
+  subtitle="Pioneering digital infrastructures that bridge literary heritage with immersive VR/AR experiences."
+  image="/appoploo_services_1769691078752.png"
+  reverse={true}
+>
+  <div class="research-content">
+    <p class="text-muted main-text">
+      In strategic partnership with European academic institutions, we design
+      gamified cultural ecosystems that breathe new life into historical sites.
+    </p>
+
+    <div class="stat-boxes">
+      <div class="stat-box">
+        <span class="text-accent label">TENURE</span>
+        <span class="text-white value">2020 – 2023</span>
+      </div>
+      <div class="stat-box">
+        <span class="text-accent label">SUPPORTED BY</span>
+        <span class="text-white value">EU • RIS3</span>
+      </div>
+    </div>
+
+    <div class="research-logos text-muted">
+      <span>Computer Technology Institute "Diophantus"</span>
+      <span class="divider">/</span>
+      <span>University of Thessaly</span>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .research-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .main-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .stat-boxes {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .stat-box .label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+  }
+
+  .stat-box .value {
+    font-size: 1.2rem;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+  }
+
+  .research-logos {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    opacity: 0.6;
+  }
+
+  .divider {
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .stat-boxes {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .research-logos {
+      flex-direction: column;
+      text-align: center;
+    }
+    .divider {
+      display: none;
+    }
+  }
+</style>
