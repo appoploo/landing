@@ -1,100 +1,230 @@
 ---
-import Section from "./Section.astro";
+const partners = [
+  "Computer Technology Institute 'Diophantus'",
+  "University of Thessaly",
+];
 ---
 
-<Section
-  id="research"
-  title="Cultural Preservation"
-  subtitle="Pioneering digital infrastructures that bridge literary heritage with immersive VR/AR experiences."
-  image="/appoploo_services_1769691078752.png"
-  reverse={true}
->
-  <div class="research-content">
-    <p class="text-muted main-text">
-      In strategic partnership with European academic institutions, we design
-      gamified cultural ecosystems that breathe new life into historical sites.
-    </p>
-
-    <div class="stat-boxes">
-      <div class="stat-box">
-        <span class="text-accent label">TENURE</span>
-        <span class="text-white value">2020 – 2023</span>
+<section id="research" class="research">
+  <div class="container">
+    <div class="research-layout">
+      <div class="research-visual">
+        <div class="visual-frame">
+          <img
+            src="/appoploo_services_1769691078752.png"
+            alt="Cultural Preservation Research"
+            loading="lazy"
+          />
+          <div class="frame-accent"></div>
+        </div>
       </div>
-      <div class="stat-box">
-        <span class="text-accent label">SUPPORTED BY</span>
-        <span class="text-white value">EU • RIS3</span>
-      </div>
-    </div>
 
-    <div class="research-logos text-muted">
-      <span>Computer Technology Institute "Diophantus"</span>
-      <span class="divider">/</span>
-      <span>University of Thessaly</span>
+      <div class="research-content">
+        <span class="section-label">R&D Initiative</span>
+        <h2 class="section-title">
+          Cultural Heritage<br/>
+          <span class="text-accent">Preservation</span>
+        </h2>
+        <p class="section-description">
+          Pioneering digital infrastructures that bridge literary heritage with
+          immersive VR/AR experiences. In partnership with leading European
+          academic institutions.
+        </p>
+
+        <div class="research-meta">
+          <div class="meta-item">
+            <span class="meta-label">Program Duration</span>
+            <span class="meta-value">2020 — 2023</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Funded By</span>
+            <span class="meta-value">EU / RIS3</span>
+          </div>
+        </div>
+
+        <div class="partners">
+          <span class="partners-label">In Partnership With</span>
+          <div class="partners-list">
+            {partners.map((partner) => (
+              <span class="partner">{partner}</span>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</Section>
+</section>
 
 <style>
-  .research-content {
+  .research {
+    background: var(--primary);
+    position: relative;
+  }
+
+  .research::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  .research-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* Visual */
+  .research-visual {
+    position: relative;
+  }
+
+  .visual-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .visual-frame img {
+    width: 100%;
+    display: block;
+    filter: saturate(0.85) contrast(1.05);
+    transition: filter 0.6s var(--ease-out);
+  }
+
+  .visual-frame:hover img {
+    filter: saturate(1) contrast(1.1);
+  }
+
+  .frame-accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  /* Content */
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .section-description {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .research-meta {
     display: flex;
-    flex-direction: column;
     gap: 3rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
   }
 
-  .main-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-  }
-
-  .stat-boxes {
-    display: flex;
-    gap: 4rem;
-  }
-
-  .stat-box {
+  .meta-item {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .stat-box .label {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 3px;
-  }
-
-  .stat-box .value {
-    font-size: 1.2rem;
-    font-family: "Playfair Display", serif;
+  .meta-label {
+    font-size: 0.6875rem;
     font-weight: 600;
-  }
-
-  .research-logos {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
     text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+  }
+
+  .meta-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .partners {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
-    align-items: center;
-    opacity: 0.6;
   }
 
-  .divider {
-    color: var(--accent);
+  .partners-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
   }
 
-  @media (max-width: 768px) {
-    .stat-boxes {
-      flex-direction: column;
-      gap: 2rem;
+  .partners-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .partner {
+    padding: 0.5rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 1024px) {
+    .research-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
-    .research-logos {
-      flex-direction: column;
-      text-align: center;
+
+    .research-visual {
+      order: 0;
     }
-    .divider {
-      display: none;
+
+    .research-content {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .research-meta {
+      flex-direction: column;
+      gap: 1.5rem;
     }
   }
 </style>
+
+<script>
+  const section = document.querySelector('.research');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  if (section) observer.observe(section);
+</script>

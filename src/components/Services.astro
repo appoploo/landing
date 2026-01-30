@@ -1,48 +1,55 @@
 ---
 const services = [
   {
-    title: "Precision Consulting",
-    desc: "Bespoke strategic architectures for global maritime leaders.",
     id: "01",
+    title: "Strategic Intelligence",
+    description: "Data-driven roadmaps aligned with operational objectives.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
   },
   {
-    title: "Native Engineering",
-    desc: "High-fidelity cross-platform ecosystems built for resilience.",
     id: "02",
+    title: "Custom Engineering",
+    description: "High-performance native applications and systems.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>`,
   },
   {
-    title: "Systems Intelligence",
-    desc: "Advanced telemetry and encrypted fleet management solutions.",
     id: "03",
+    title: "Fleet Security",
+    description: "Military-grade encryption and secure protocols.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
   },
   {
-    title: "Refined Experience",
-    desc: "Crafting digital interfaces that command professional attention.",
     id: "04",
+    title: "Predictive Analytics",
+    description: "Live telemetry with proactive insight generation.",
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
   },
 ];
 ---
 
 <section id="services" class="services">
   <div class="container">
-    <div class="services-header">
-      <span class="eyebrow">CAPABILITY SPECTRUM</span>
-      <h2 class="section-title">
-        Architecting <br />
-        <span class="italic text-accent">Technical Resillience</span>
-      </h2>
+    <div class="services-header fade-up">
+      <h2 class="section-title">Core Capabilities</h2>
+      <div class="header-line"></div>
     </div>
 
-    <div class="services-list">
+    <div class="services-grid">
       {
-        services.map((service) => (
-          <div class="service-node reveal-up">
-            <div class="node-header">
-              <span class="node-id text-accent">{service.id}</span>
-              <h3 class="node-title">{service.title}</h3>
+        services.map((service, index) => (
+          <div
+            class="service-item fade-up"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="service-header">
+              <span class="service-id">{service.id}</span>
+              <div class="service-icon" set:html={service.icon} />
             </div>
-            <p class="node-desc text-muted">{service.desc}</p>
-            <div class="node-line" />
+            <div class="service-content">
+              <h3 class="service-title">{service.title}</h3>
+              <p class="service-desc">{service.description}</p>
+            </div>
+            <div class="service-hover-bg" />
           </div>
         ))
       }
@@ -51,81 +58,138 @@ const services = [
 </section>
 
 <style>
-  .services-header {
-    margin-bottom: 8rem;
-    text-align: left;
+  .services {
+    padding: var(--section-padding) 0;
+    position: relative;
+    background: var(--primary);
   }
 
-  .eyebrow {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.4em;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    display: block;
+  .services-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 5rem;
   }
 
   .section-title {
-    font-size: clamp(3rem, 7vw, 5rem);
-    line-height: 0.95;
-    letter-spacing: -2px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    letter-spacing: -0.03em;
   }
 
-  .services-list {
+  .header-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6rem 8rem;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
   }
 
-  .service-node {
+  .service-item {
     position: relative;
-    padding-bottom: 2rem;
-  }
-
-  .node-header {
+    padding: 4rem 3rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    transition: all 0.5s var(--ease-out);
+    overflow: hidden;
     display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    flex-direction: column;
+    gap: 3rem;
+    group: cursor-pointer;
   }
 
-  .node-id {
-    font-size: 0.8rem;
-    font-weight: 900;
-    font-family: "Inter", sans-serif;
-    letter-spacing: 2px;
-  }
-
-  .node-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    font-family: "Playfair Display", serif;
-  }
-
-  .node-desc {
-    font-size: 1rem;
-    max-width: 400px;
-    line-height: 1.6;
-  }
-
-  .node-line {
+  .service-hover-bg {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 1px;
-    background: linear-gradient(to right, var(--accent), transparent);
-    transition: width 1s cubic-bezier(0.19, 1, 0.22, 1);
+    inset: 0;
+    background: radial-gradient(
+      circle at top right,
+      var(--surface-elevated),
+      transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out);
+    z-index: 0;
   }
 
-  .service-node:hover .node-line {
-    width: 100%;
+  .service-item:hover .service-hover-bg {
+    opacity: 1;
   }
 
-  @media (max-width: 991px) {
-    .services-list {
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-id {
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  .service-icon {
+    color: var(--text-secondary);
+    transition:
+      color 0.3s var(--ease-out),
+      transform 0.3s var(--ease-out);
+  }
+
+  .service-item:hover .service-icon {
+    color: var(--accent);
+    transform: scale(1.1);
+  }
+
+  .service-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .service-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .service-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 300px;
+    line-height: 1.6;
+    opacity: 0.7;
+    transition: opacity 0.3s var(--ease-out);
+  }
+
+  .service-item:hover .service-desc {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
       grid-template-columns: 1fr;
-      gap: 4rem;
+    }
+
+    .service-item {
+      padding: 3rem 2rem;
+    }
+
+    .services-header {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
     }
   }
 </style>

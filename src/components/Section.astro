@@ -23,8 +23,6 @@ const {
     </div>
 
     <div class="image-wrapper">
-      <div class="tech-crosshair top-left"></div>
-      <div class="tech-crosshair bottom-right"></div>
       <div class="image-frame">
         <div class="image-container">
           <img
@@ -44,14 +42,14 @@ const {
   .grid {
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
-    gap: 8rem;
+    gap: 6rem; /* Tighter gap */
     align-items: center;
   }
 
   .reveal-section {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal-section.visible {
@@ -69,104 +67,68 @@ const {
 
   /* Typography */
   .section-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
   }
 
   .surgical-line.accent-line {
-    width: 60px;
-    height: 2px;
+    width: 40px;
+    height: 1px; /* Thinner line */
     background: var(--accent);
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
   }
 
   .section-subtitle {
     font-size: 1.25rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
     line-height: 1.6;
-    max-width: 500px;
+    max-width: 480px;
     font-weight: 400;
+    color: var(--text-secondary);
   }
 
   /* Image Area */
   .image-wrapper {
     position: relative;
-    padding: 2rem;
+    padding: 0; /* No padding */
   }
 
   .image-frame {
     position: relative;
-    padding: 1px;
-    background: linear-gradient(135deg, var(--glass-border), transparent);
+    /* Removed gradient border, kept simple shadow/glow if needed, or plainly clean */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
   .image-container {
     position: relative;
     overflow: hidden;
     background: var(--secondary);
+    border-radius: 2px; /* Slight radius */
   }
 
   .image-container img {
     width: 100%;
     display: block;
-    filter: saturate(0) contrast(1.1) brightness(0.9);
-    transition: all 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+    /* Removed heavy filters for natural professional look */
+    filter: brightness(0.95);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .image-overlay {
+    /* Subtle overlay only */
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-      circle at center,
-      transparent 20%,
-      rgba(3, 3, 4, 0.4) 100%
-    );
+    background: rgba(0, 0, 0, 0.1);
     pointer-events: none;
-    mix-blend-mode: multiply;
   }
 
   .reveal-section:hover img {
-    filter: saturate(1) contrast(1.1) brightness(1);
-    transform: scale(1.03);
-  }
-
-  /* Tech Decorators Local */
-  .tech-crosshair {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    z-index: 2;
-  }
-
-  .tech-crosshair::before,
-  .tech-crosshair::after {
-    content: "";
-    position: absolute;
-    background: var(--accent);
-  }
-
-  .tech-crosshair::before {
-    width: 100%;
-    height: 1px;
-    top: 50%;
-  }
-  .tech-crosshair::after {
-    width: 1px;
-    height: 100%;
-    left: 50%;
-  }
-
-  .tech-crosshair.top-left {
-    top: 0;
-    left: 0;
-    transform: translate(50%, 50%);
-  }
-  .tech-crosshair.bottom-right {
-    bottom: 0;
-    right: 0;
-    transform: translate(-50%, -50%);
+    transform: scale(1.02);
+    filter: brightness(1);
   }
 
   @media (max-width: 1200px) {

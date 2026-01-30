@@ -1,113 +1,312 @@
 ---
-import Section from "./Section.astro";
+const features = [
+  {
+    title: "Military-Grade Encryption",
+    description: "End-to-end encrypted communications ensuring complete data sovereignty.",
+  },
+  {
+    title: "Adaptive Polling",
+    description: "Intelligent frequency scaling based on vessel activity and mission parameters.",
+  },
+  {
+    title: "Offline Resilience",
+    description: "Full functionality maintained even in connectivity-challenged environments.",
+  },
+  {
+    title: "Multi-Fleet Management",
+    description: "Unified command center for managing diverse vessel portfolios seamlessly.",
+  },
+];
 ---
 
-<Section
-  id="products"
-  title="Appoploo Tracker"
-  subtitle="The gold-standard in maritime fleet intelligence. Zero compromise on security or precision."
-  image="/appoploo_tracker_1769691062345.png"
-  glass={true}
->
-  <div class="luxe-features">
-    <div class="feature-item">
-      <div class="feature-icon"></div>
-      <h4 class="f-title">Encryption Core</h4>
-      <p class="f-desc text-muted">
-        Military-grade data protocols ensuring your fleet coordinates remain
-        private.
-      </p>
-    </div>
+<section id="products" class="products">
+  <div class="container">
+    <div class="products-layout">
+      <div class="products-content">
+        <span class="section-label">Our Product</span>
+        <h2 class="section-title">
+          Appoploo<br/>
+          <span class="text-accent">Tracker</span>
+        </h2>
+        <p class="section-description">
+          The definitive standard in maritime fleet intelligence. Real-time vessel
+          tracking with enterprise-grade security and sub-5-meter precision.
+        </p>
 
-    <div class="feature-item">
-      <div class="feature-icon"></div>
-      <h4 class="f-title">Dynamic Polling</h4>
-      <p class="f-desc text-muted">
-        Intelligent frequency scaling based on vessel activity and mission
-        requirements.
-      </p>
+        <div class="features-list">
+          {features.map((feature) => (
+            <div class="feature-item">
+              <div class="feature-check">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
+              <div class="feature-text">
+                <h4 class="feature-title">{feature.title}</h4>
+                <p class="feature-desc">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <a href="#contact" class="btn-primary">
+          Request Demo
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="products-visual">
+        <div class="visual-frame">
+          <div class="frame-glow"></div>
+          <div class="frame-border"></div>
+          <img
+            src="/appoploo_tracker_1769691062345.png"
+            alt="Appoploo Tracker Dashboard"
+            loading="lazy"
+          />
+          <div class="frame-overlay"></div>
+        </div>
+
+        <div class="metrics-bar">
+          <div class="metric">
+            <span class="metric-value">99.9%</span>
+            <span class="metric-label">Uptime SLA</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric">
+            <span class="metric-value">&lt;5m</span>
+            <span class="metric-label">GPS Accuracy</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric">
+            <span class="metric-value">256-bit</span>
+            <span class="metric-label">Encryption</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="metrics glass-panel">
-    <div class="metric">
-      <span class="val">99.9%</span>
-      <span class="tag">UPTIME</span>
-    </div>
-    <div class="metric-divider"></div>
-    <div class="metric">
-      <span class="val">&lt;5M</span>
-      <span class="tag">ACCURACY</span>
-    </div>
-  </div>
-</Section>
+</section>
 
 <style>
-  .luxe-features {
+  .products {
+    background: var(--secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at 100% 50%, rgba(201, 162, 39, 0.03), transparent 70%);
+    pointer-events: none;
+  }
+
+  .products-layout {
     display: grid;
-    gap: 3rem;
-    margin-bottom: 4rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .section-description {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
   }
 
   .feature-item {
-    position: relative;
-    padding-left: 1.5rem;
-    border-left: 1px solid var(--border);
-    transition: all 0.3s ease;
-  }
-
-  .feature-item:hover {
-    border-left-color: var(--accent);
-  }
-
-  .f-title {
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-    font-family: "Inter", sans-serif;
-  }
-
-  .f-desc {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .metrics {
-    padding: 2.5rem;
     display: flex;
-    justify-content: space-around;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .feature-check {
+    width: 28px;
+    height: 28px;
+    display: flex;
     align-items: center;
-    border-radius: 2px;
+    justify-content: center;
+    background: var(--accent-glow);
+    border-radius: 6px;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .feature-desc {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+  }
+
+  /* Visual Section */
+  .products-visual {
+    position: relative;
+  }
+
+  .visual-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .frame-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at 50% 50%, rgba(201, 162, 39, 0.1), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .frame-border {
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .visual-frame img {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: saturate(0.9) contrast(1.05);
+    transition: filter 0.6s var(--ease-out);
+  }
+
+  .visual-frame:hover img {
+    filter: saturate(1) contrast(1.1);
+  }
+
+  .frame-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--secondary));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .metrics-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: -2rem;
+    position: relative;
+    z-index: 3;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+
+  .metric-label {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .metric-divider {
     width: 1px;
-    height: 40px;
-    background: var(--border-strong);
+    height: 32px;
+    background: var(--border);
   }
 
-  .metric {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  @media (max-width: 1024px) {
+    .products-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .products-content {
+      order: 1;
+    }
+
+    .products-visual {
+      order: 0;
+    }
   }
 
-  .val {
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: "Playfair Display", serif;
-    color: var(--accent);
-    line-height: 1;
-  }
+  @media (max-width: 600px) {
+    .metrics-bar {
+      flex-direction: column;
+      gap: 1rem;
+      margin-left: 0;
+      margin-right: 0;
+    }
 
-  .tag {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--text-muted);
+    .metric-divider {
+      width: 60px;
+      height: 1px;
+    }
   }
 </style>
+
+<script>
+  const section = document.querySelector('.products');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  if (section) observer.observe(section);
+</script>

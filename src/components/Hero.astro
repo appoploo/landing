@@ -2,295 +2,306 @@
 
 ---
 
-<section id="home" class="hero">
+<section class="hero">
   <div class="hero-bg">
-    <div class="hero-mask"></div>
-    <div class="hero-grid grid-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-grain"></div>
+    <div class="hero-grid"></div>
   </div>
 
-  <!-- Technical Decorators -->
-  <div class="tech-line vertical left"></div>
-  <div class="tech-line vertical right"></div>
-  <div class="tech-crosshair top-left"></div>
-  <div class="tech-crosshair bottom-right"></div>
-
-  <div class="container hero-container">
-    <div class="hero-content">
-      <div class="eyebrow-wrapper fade-in">
-        <span class="tech-marker">01</span>
-        <span class="eyebrow">INTEGRATED VESSEL INTELLIGENCE</span>
-      </div>
-
-      <h1 class="hero-title fade-in">
-        Architecting <br />
-        <span class="text-italic">the Digital Fleet</span>
-      </h1>
-
-      <p class="hero-desc fade-in">
-        Global maritime command systems engineered for precision. Expert IT
-        project management and custom tracking solutions.
-      </p>
-
-      <div class="hero-actions fade-in">
-        <a href="/services" class="btn-primary">
-          <span class="btn-inner">Explore Expertise</span>
-        </a>
-        <a href="/products" class="btn-secondary">
-          <span class="btn-inner">View Technologies</span>
-        </a>
-      </div>
+  <div class="container hero-content">
+    <div class="hero-badge fade-up">
+      <span class="badge-dot"></span>
+      <span class="badge-text">SYSTEM V.4.0 ONLINE</span>
     </div>
-  </div>
 
-  <div class="scroll-indicator fade-in">
-    <div class="mouse">
-      <div class="wheel"></div>
+    <h1 class="hero-title">
+      <div class="title-line">
+        <span>PRECISION</span>
+      </div>
+      <div class="title-line">
+        <span class="title-accent">FLEET INTEL</span>
+      </div>
+    </h1>
+
+    <p class="hero-description fade-up delay-2">
+      Engineered for the uncompromising. The definitive maritime intelligence
+      platform delivering absolute visibility and military-grade security for
+      global fleets.
+    </p>
+
+    <div class="hero-actions fade-up delay-3">
+      <a href="#products" class="btn-primary">
+        Initialize System
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+      <a href="#services" class="btn-secondary"> View Documentation </a>
+    </div>
+
+    <div class="hero-stats fade-up delay-4">
+      <div class="stat-group">
+        <div class="stat-item">
+          <span class="stat-val">99.99<small>%</small></span>
+          <span class="stat-label">Uptime Protocol</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-val">&lt;50<small>ms</small></span>
+          <span class="stat-label">Latency</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-val">24/7</span>
+          <span class="stat-label">Command Center</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    position: relative;
-    height: 100vh;
-    min-height: 700px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     overflow: hidden;
+    padding-top: var(--header-height);
   }
 
+  /* Background */
   .hero-bg {
     position: absolute;
     inset: 0;
     z-index: 0;
-    background: url("/appoploo_hero_v2_1769691119605.png") no-repeat center
-      center/cover;
-    transform: scale(1.1); /* Slight zoom for parallax feel if added later */
   }
 
-  .hero-mask {
+  .hero-gradient {
     position: absolute;
     inset: 0;
     background: radial-gradient(
-      circle at center,
-      rgba(3, 3, 4, 0.4) 0%,
-      rgba(3, 3, 4, 0.85) 60%,
-      #030304 95%
+      circle at 50% 0%,
+      rgba(227, 213, 170, 0.08) 0%,
+      transparent 60%
     );
-    z-index: 1;
+  }
+
+  .hero-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
   }
 
   .hero-grid {
     position: absolute;
     inset: 0;
-    z-index: 2;
-    opacity: 0.4;
-    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      black 40%,
-      transparent 80%
-    );
+    background-size: 100px 100px;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
   }
 
-  /* Technical Decorators */
-  .tech-line {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.05);
-    z-index: 2;
-  }
-
-  .tech-line.vertical {
-    top: 0;
-    bottom: 0;
-    width: 1px;
-  }
-
-  .tech-line.vertical.left {
-    left: 10%;
-  }
-  .tech-line.vertical.right {
-    right: 10%;
-  }
-
-  .tech-crosshair {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    z-index: 2;
-  }
-
-  .tech-crosshair::before,
-  .tech-crosshair::after {
-    content: "";
-    position: absolute;
-    background: var(--accent);
-  }
-
-  .tech-crosshair::before {
-    width: 100%;
-    height: 1px;
-    top: 50%;
-  }
-  .tech-crosshair::after {
-    width: 1px;
-    height: 100%;
-    left: 50%;
-  }
-
-  .tech-crosshair.top-left {
-    top: 10%;
-    left: 10%;
-    transform: translate(-50%, -50%);
-  }
-  .tech-crosshair.bottom-right {
-    bottom: 10%;
-    right: 10%;
-    transform: translate(-50%, -50%);
-  }
-
-  .hero-container {
+  /* Content */
+  .hero-content {
     position: relative;
-    z-index: 3;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .hero-content {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .eyebrow-wrapper {
+  /* Badge */
+  .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: 0.75rem;
     padding: 0.5rem 1rem;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
   }
 
-  .tech-marker {
-    font-family: "Inter", monospace;
-    font-size: 0.7rem;
-    color: var(--accent);
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
   }
 
-  .eyebrow {
+  .badge-text {
     font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+  }
+
+  /* Title */
+  .hero-title {
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-line {
+    overflow: hidden;
+  }
+
+  .title-line span {
+    display: block;
+    animation: fadeUp 1s var(--ease-out) forwards;
+    transform: translateY(100%);
+  }
+
+  .title-line:nth-child(2) span {
+    animation-delay: 0.1s;
+  }
+
+  .title-accent {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Description */
+  .hero-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 540px;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+  }
+
+  /* Actions */
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 5rem;
+  }
+
+  /* Stats */
+  .hero-stats {
+    padding: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
+
+  .stat-group {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.5rem 3rem;
+    background: rgba(5, 5, 5, 0.6);
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .stat-val {
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--text-muted);
+    color: var(--text-primary);
+    line-height: 1;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+  }
+
+  .stat-val small {
+    font-size: 1rem;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    margin-left: 0.1rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
   }
 
-  .hero-title {
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
-    font-weight: 700;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    margin-bottom: 2.5rem;
-  }
-
-  .text-italic {
-    font-family: "Playfair Display", serif;
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-
-  .hero-desc {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 4rem;
-    line-height: 1.6;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-  }
-
-  /* Scroll Indicator */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    opacity: 0.5;
-  }
-
-  .mouse {
-    width: 24px;
+  .stat-divider {
+    width: 1px;
     height: 40px;
-    border: 1px solid var(--white);
-    border-radius: 12px;
-    position: relative;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
   }
 
-  .wheel {
-    width: 2px;
-    height: 6px;
-    background: var(--white);
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 1.5s infinite;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translate(-50%, 0);
-      opacity: 1;
-    }
+  @keyframes pulse {
+    0%,
     100% {
-      transform: translate(-50%, 15px);
-      opacity: 0;
-    }
-  }
-
-  /* Simple reveal animation */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  }
-
-  .fade-in:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  .fade-in:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-  .fade-in:nth-child(4) {
-    animation-delay: 0.6s;
-  }
-
-  @keyframes fadeIn {
-    to {
       opacity: 1;
-      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.5;
     }
   }
 
+  /* Responsive */
   @media (max-width: 768px) {
+    .stat-group {
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.5rem;
+      background: transparent;
+    }
+
+    .stat-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+    }
+
     .hero-actions {
       flex-direction: column;
-      align-items: center;
+      width: 100%;
+      max-width: 300px;
     }
 
-    .tech-line,
-    .tech-crosshair {
-      display: none;
-    }
-
-    .hero-title {
-      font-size: 3rem;
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
     }
   }
 </style>
