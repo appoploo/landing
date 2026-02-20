@@ -9,7 +9,11 @@ const navItems = [
 <header class="header-container">
   <div class="header-pill" id="header-pill">
     <a href="/" class="logo">
-      <div class="logo-mark"></div>
+      <img
+        src="/viber_image_2026-02-03_14-08-23-767.png"
+        alt="Appoploo Logo"
+        class="logo-img"
+      />
       <span class="logo-text">APPOPLOO</span>
     </a>
 
@@ -97,23 +101,22 @@ const navItems = [
     width: min(100% - 2rem, 800px);
     height: 56px;
     padding: 0 0.5rem 0 1.25rem;
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 100px;
     box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06),
-      0 0 0 1px rgba(0, 0, 0, 0.2);
+      0 4px 20px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.4s var(--ease-elastic);
     pointer-events: auto;
   }
 
   .header-pill.scrolled {
-    background: rgba(5, 5, 5, 0.85);
-    border-color: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     width: min(100% - 2rem, 600px);
   }
 
@@ -125,12 +128,10 @@ const navItems = [
     text-decoration: none;
   }
 
-  .logo-mark {
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--accent);
+  .logo-img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
   }
 
   .logo-text {
@@ -140,15 +141,14 @@ const navItems = [
     color: var(--text-primary);
   }
 
-  /* Desktop Nav */
   .nav-desktop {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.05);
     padding: 0.25rem;
     border-radius: 100px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-link {
@@ -199,11 +199,11 @@ const navItems = [
     gap: 0.75rem;
     padding: 0 0.3rem 0 1.25rem;
     height: 40px;
-    background: var(--text-primary);
+    background: #ffffff;
     border-radius: 100px;
     color: var(--primary);
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.9375rem;
+    font-weight: 700;
     transition: transform 0.3s var(--ease-out);
   }
 
@@ -249,11 +249,11 @@ const navItems = [
     transition: all 0.3s var(--ease-out);
   }
 
-  /* Mobile Menu */
   .mobile-menu {
     position: fixed;
     inset: 0;
-    background: rgba(5, 5, 5, 0.98);
+    background: rgba(72, 100, 146, 0.98);
+    backdrop-filter: blur(20px);
     z-index: 999;
     opacity: 0;
     visibility: hidden;

@@ -22,8 +22,8 @@ const partners = [
       <div class="research-content">
         <span class="section-label">R&D Initiative</span>
         <h2 class="section-title">
-          Cultural Heritage<br/>
-          <span class="text-accent">Preservation</span>
+          Cultural Heritage<br />
+          <strong>Preservation</strong>
         </h2>
         <p class="section-description">
           Pioneering digital infrastructures that bridge literary heritage with
@@ -45,9 +45,7 @@ const partners = [
         <div class="partners">
           <span class="partners-label">In Partnership With</span>
           <div class="partners-list">
-            {partners.map((partner) => (
-              <span class="partner">{partner}</span>
-            ))}
+            {partners.map((partner) => <span class="partner">{partner}</span>)}
           </div>
         </div>
       </div>
@@ -57,18 +55,23 @@ const partners = [
 
 <style>
   .research {
-    background: var(--primary);
+    background: var(--primary); /* inherits blue */
     position: relative;
   }
 
   .research::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
   }
 
   .research-layout {
@@ -87,7 +90,7 @@ const partners = [
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .visual-frame img {
@@ -107,7 +110,7 @@ const partners = [
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), transparent);
   }
 
   /* Content */
@@ -117,7 +120,8 @@ const partners = [
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--accent);
+    color: #ffffff;
+    opacity: 0.8;
     margin-bottom: 1rem;
   }
 
@@ -139,7 +143,7 @@ const partners = [
     gap: 3rem;
     margin-bottom: 2.5rem;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .meta-item {
@@ -184,12 +188,13 @@ const partners = [
 
   .partner {
     padding: 0.5rem 1rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
     font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #ffffff;
+    backdrop-filter: blur(10px);
   }
 
   @media (max-width: 1024px) {
@@ -216,15 +221,18 @@ const partners = [
 </style>
 
 <script>
-  const section = document.querySelector('.research');
+  const section = document.querySelector(".research");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.2 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
 
   if (section) observer.observe(section);
 </script>

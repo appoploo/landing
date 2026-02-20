@@ -61,7 +61,7 @@ const services = [
   .services {
     padding: var(--section-padding) 0;
     position: relative;
-    background: var(--primary);
+    background: var(--primary); /* inherits the #486492 base */
   }
 
   .services-header {
@@ -88,22 +88,22 @@ const services = [
   .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid var(--border);
-    border-left: 1px solid var(--border);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .service-item {
     position: relative;
     padding: 4rem 3rem;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     background: transparent;
     transition: all 0.5s var(--ease-out);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    group: cursor-pointer;
+    cursor: pointer;
   }
 
   .service-hover-bg {
@@ -111,7 +111,7 @@ const services = [
     inset: 0;
     background: radial-gradient(
       circle at top right,
-      var(--surface-elevated),
+      rgba(255, 255, 255, 0.15),
       transparent 80%
     );
     opacity: 0;
@@ -138,14 +138,14 @@ const services = [
   }
 
   .service-icon {
-    color: var(--text-secondary);
+    color: var(--text-primary);
     transition:
       color 0.3s var(--ease-out),
       transform 0.3s var(--ease-out);
   }
 
   .service-item:hover .service-icon {
-    color: var(--accent);
+    color: #ffffff;
     transform: scale(1.1);
   }
 
