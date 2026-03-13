@@ -3,25 +3,29 @@ const services = [
   {
     id: "01",
     title: "IT Business consulting",
-    description: "Do you have a promising idea for a new product or service? We can evaluate all aspects of the new business and minimize your investment risk.",
+    description:
+      "Do you have a promising idea for a new product or service? We can evaluate all aspects of the new business and minimize your investment risk.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
   },
   {
     id: "02",
     title: "IT project management",
-    description: "We offer project management services throughout the whole project life-cycle, from project planning up to completion and maintenance. We use experience, technology, and best practices to deliver high-quality outcomes.",
+    description:
+      "We offer project management services throughout the whole project life-cycle, from project planning up to completion and maintenance. We use experience, technology, and best practices to deliver high-quality outcomes.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>`,
   },
   {
     id: "03",
     title: "Application development",
-    description: "Web or mobile applications, front-end, back-end, and cross-platform development, software consulting, product design, UI /UX, all are our lifestyle.",
+    description:
+      "Web or mobile applications, front-end, back-end, and cross-platform development, software consulting, product design, UI /UX, all are our lifestyle.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
   },
   {
     id: "04",
     title: "Website design & implementation",
-    description: "Our clients’ web presence must be unique. From web design and content creation to development and optimization, we ensure the website’s ability to drive business goals.",
+    description:
+      "Our clients’ web presence must be unique. From web design and content creation to development and optimization, we ensure the website’s ability to drive business goals.",
     icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`,
   },
 ];
@@ -42,8 +46,8 @@ const services = [
             style={`animation-delay: ${index * 0.1}s`}
           >
             <div class="service-header">
-              <span class="service-id">{service.id}</span>
-              <div class="service-icon" set:html={service.icon} />
+              {/* <span class="service-id">{service.id}</span> */}
+              {/* <div class="service-icon" set:html={service.icon} /> */}
             </div>
             <div class="service-content">
               <h3 class="service-title">{service.title}</h3>

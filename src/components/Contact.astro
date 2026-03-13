@@ -55,76 +55,6 @@ const contactMethods = [
           }
         </div>
       </div>
-
-      <div class="contact-card">
-        <div class="card-header">
-          <h3 class="card-title">Send a Message</h3>
-          <p class="card-subtitle">We'll respond within 24 hours</p>
-        </div>
-
-        <form class="contact-form" action="#" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name" class="form-label">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="Your name"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="you@company.com"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="company" class="form-label">Company</label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              class="form-input"
-              placeholder="Your company name"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              class="form-input form-textarea"
-              placeholder="Tell us about your project..."
-              rows="4"
-              required></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary btn-submit">
-            Send Message
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
-            </svg>
-          </button>
-        </form>
-      </div>
     </div>
   </div>
 </section>
@@ -138,7 +68,7 @@ const contactMethods = [
 
   .contact-layout {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr;
     gap: 5rem;
     align-items: start;
   }
