@@ -66,6 +66,39 @@ const products = [
       { value: "Real-time", label: "GPS + Ops" },
     ],
   },
+  {
+    id: "seanav",
+    label: "Sea Navigation",
+    title: "Appoploo",
+    titleStrong: "Sea-Nav",
+    tagline:
+      "Google Maps for the sea — pick two points, get a sea-snapped route, then follow it live with GPS, off-route alerts and automatic re-routing.",
+    image: "/sea-nav.webp",
+    imageW: 1600,
+    imageH: 956,
+    imageAlt:
+      "Appoploo Sea-Nav nautical route planner showing a passage across the Aegean Sea on an OpenSeaMap chart",
+    url: "https://nav-sea.vercel.app/",
+    features: [
+      {
+        title: "Sea-snapped routing",
+        desc: "Tap start and destination — get a route that follows navigable water, not land.",
+      },
+      {
+        title: "Live GPS navigation",
+        desc: "Follow your passage in real time with heading, speed and ETA.",
+      },
+      {
+        title: "Off-route detection",
+        desc: "Automatic alerts and re-routing if you drift off the planned track.",
+      },
+    ],
+    metrics: [
+      { value: "Two taps", label: "To a route" },
+      { value: "Live", label: "GPS + ETA" },
+      { value: "Auto", label: "Re-routing" },
+    ],
+  },
 ];
 ---
 
@@ -77,11 +110,12 @@ const products = [
       <span class="section-label">Our Products</span>
       <h2 class="section-title">
         One maritime stack.<br />
-        <strong>Two purpose-built platforms.</strong>
+        <strong>Three purpose-built platforms.</strong>
       </h2>
       <p class="section-lead">
         The Appoploo stack covers the full operational spectrum — from
-        real-time vessel visibility to end-to-end fleet operations.
+        real-time vessel visibility and sea navigation to end-to-end fleet
+        operations.
       </p>
     </div>
 
