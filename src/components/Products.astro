@@ -6,26 +6,30 @@ const products = [
     title: "Appoploo",
     titleStrong: "Tracker",
     tagline:
-      "Real-time vessel tracking built on real needs. Simple, cost-effective, constantly evolving.",
-    image: "/pic.webp",
+      "Real-time vessel tracking on a live map — voyage history, speed and battery telemetry for commercial and recreational fleets.",
+    image: "/tracker-dashboard.webp",
+    imageW: 1600,
+    imageH: 823,
+    imageAlt:
+      "Appoploo Tracker dashboard showing live vessel positions on a map of Greece with speed, battery and position telemetry",
     url: "https://tracker.appoploo.com",
     features: [
       {
-        title: "All-inclusive plans",
-        desc: "Simple pricing that includes every operating cost.",
+        title: "Precision live tracking",
+        desc: "Pinpoint every vessel on a live chart, anywhere in the world.",
       },
       {
-        title: "Features that make sense",
-        desc: "Built for captains, operators and crews — not checklists.",
+        title: "Voyage history & telemetry",
+        desc: "Replay past routes and monitor speed, heading and battery in real time.",
       },
       {
-        title: "Unlimited users",
-        desc: "No seat-based limits, no hidden caps.",
+        title: "Built for fleets",
+        desc: "Unlimited users, all-inclusive plans and enterprise-grade security.",
       },
     ],
     metrics: [
-      { value: "99.9%", label: "Uptime SLA" },
-      { value: "<5m", label: "GPS Accuracy" },
+      { value: "Real-time", label: "Live GPS" },
+      { value: "Global", label: "Coverage" },
       { value: "256-bit", label: "Encryption" },
     ],
   },
@@ -35,27 +39,31 @@ const products = [
     title: "Appoploo",
     titleStrong: "YMS",
     tagline:
-      "Run your fleet from one place — vessels, crew, bookings, maintenance and expenses. No spreadsheets.",
-    image: "/yms-dashboard.png",
+      "Run your whole operation from one dashboard — vessels, crew, bookings, expenses and maintenance. No spreadsheets.",
+    image: "/yms-dashboard.webp",
+    imageW: 1600,
+    imageH: 956,
+    imageAlt:
+      "Appoploo YMS yacht-management dashboard with revenue, active vessels, bookings, maintenance alerts and fleet utilization",
     url: "https://yms.appoploo.com",
     features: [
       {
         title: "Fleet & crew operations",
-        desc: "Vessel records, documents, crew contracts and payroll in one dashboard.",
+        desc: "Vessel records, documents, crew contracts and team roles in one place.",
       },
       {
-        title: "Smart bookings",
-        desc: "Seasonal pricing, availability checks and a public booking page.",
+        title: "Bookings & revenue",
+        desc: "Seasonal pricing, availability and a public booking page — revenue at a glance.",
       },
       {
         title: "Expenses & maintenance",
-        desc: "Recurring costs, invoices, and scheduled maintenance across the fleet.",
+        desc: "Recurring costs, invoices and scheduled maintenance across the fleet.",
       },
     ],
     metrics: [
       { value: "End-to-end", label: "Ops Stack" },
-      { value: "Real-time", label: "GPS + Ops" },
       { value: "Public", label: "Booking Page" },
+      { value: "Real-time", label: "GPS + Ops" },
     ],
   },
 ];
@@ -136,8 +144,11 @@ const products = [
               <div class="frame-border" />
               <img
                 src={product.image}
-                alt={`${product.titleStrong} dashboard`}
+                alt={product.imageAlt}
+                width={product.imageW}
+                height={product.imageH}
                 loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -373,6 +384,7 @@ const products = [
 
   .visual-frame img {
     width: 100%;
+    height: auto;
     display: block;
     position: relative;
     z-index: 1;

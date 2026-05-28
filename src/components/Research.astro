@@ -2,7 +2,7 @@
 const featured = {
   title: "Escape through Culture",
   subtitle: "digital escape game",
-  image: "/escape.png",
+  image: "/escape.webp",
   description:
     "A research initiative combining Greek cultural heritage, digital technologies and gamifying practices like escape games. Gamified cultural experiences across Elefsina, Lesvos, Volos and Skiathos.",
   meta: [
@@ -22,7 +22,7 @@ const games = [
     tagline: "Escape the Flood",
     description:
       "3D civil-protection game. Decode cryptic phone calls to locate flood hazards and deploy countermeasures before the next storm.",
-    image: "/cp-flood.png",
+    image: "/cp-flood.webp",
     tag: "Flood Response",
     url: "https://fire-esc.vercel.app/",
     color: "flood",
@@ -33,7 +33,7 @@ const games = [
     tagline: "Make the right decision",
     description:
       "Tactical volcano-hazard training. Temperature alerts, location markers and riddle-driven objectives across a volcanic terrain.",
-    image: "/cp-volcano.png",
+    image: "/cp-volcano.webp",
     tag: "Volcanic Hazards",
     url: "https://cp-volcano.vercel.app/",
     color: "volcano",
@@ -44,7 +44,7 @@ const games = [
     tagline: "First-response training",
     description:
       "Immersive 3D training for civil-protection rangers — navigate the city, identify hazards and respond within the clock.",
-    image: "/cp-ranger.png",
+    image: "/cp-ranger.webp",
     tag: "Field Response",
     url: null,
     color: "ranger",
@@ -55,7 +55,7 @@ const games = [
     tagline: "Next-gen response",
     description:
       "Iteration of the Ranger series with refined controls, extended scenarios and a richer mission system.",
-    image: "/cp-ranger-2.png",
+    image: "/cp-ranger-2.webp",
     tag: "Field Response · v2",
     url: null,
     color: "ranger",
@@ -308,7 +308,7 @@ const games = [
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -484,8 +484,8 @@ const games = [
   /* Games Grid */
   .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
   }
 
   .game-card {
@@ -535,7 +535,7 @@ const games = [
   /* Visual */
   .game-visual {
     position: relative;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: rgba(0, 0, 0, 0.25);
   }
@@ -765,10 +765,10 @@ const games = [
 
   /* Content */
   .game-content {
-    padding: 1.4rem 1.5rem 1.35rem;
+    padding: 1.05rem 1.1rem 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 0.6rem;
     flex: 1;
   }
 
@@ -779,7 +779,7 @@ const games = [
   }
 
   .game-title {
-    font-size: 1.1875rem;
+    font-size: 1.0625rem;
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.015em;
@@ -795,12 +795,17 @@ const games = [
   }
 
   .game-desc {
-    font-size: 0.8125rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
-    line-height: 1.55;
+    line-height: 1.5;
     opacity: 0.82;
     flex: 1;
     margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .game-footer {

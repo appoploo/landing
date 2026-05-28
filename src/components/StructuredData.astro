@@ -1,0 +1,107 @@
+---
+/**
+ * Centralised JSON-LD structured data for SEO + local geo signals.
+ * Emits a single @graph: Organization, LocalBusiness (geo), WebSite and
+ * the two SoftwareApplication products (Tracker, YMS).
+ */
+const SITE = "https://appoploo.com";
+
+const geo = { latitude: 38.2884, longitude: 21.7886 }; // Platani, Rio (Patras), Greece
+
+const address = {
+  "@type": "PostalAddress",
+  streetAddress: "Stadiou Str. 26",
+  postalCode: "265 04",
+  addressLocality: "Platani, Rio",
+  addressRegion: "Achaea, Western Greece",
+  addressCountry: "GR",
+};
+
+const sameAs = [
+  "https://www.linkedin.com/company/appoploo",
+  "https://www.facebook.com/appoploo",
+];
+
+const graph = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE}/#organization`,
+      name: "Appoploo",
+      url: SITE,
+      logo: { "@type": "ImageObject", url: `${SITE}/logo.png` },
+      image: `${SITE}/appoploo_hero_v2_1769691119605.png`,
+      description:
+        "Appoploo engineers the digital backbone for the global fleet — high-fidelity vessel tracking, yacht management software and bespoke maritime engineering.",
+      email: "info@appoploo.com",
+      telephone: "+30-2616-008286",
+      address,
+      sameAs,
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+30-2616-008286",
+        email: "info@appoploo.com",
+        contactType: "customer service",
+        areaServed: ["GR", "Worldwide"],
+        availableLanguage: ["en", "el"],
+      },
+    },
+    {
+      "@type": ["LocalBusiness", "ProfessionalService"],
+      "@id": `${SITE}/#localbusiness`,
+      name: "Appoploo",
+      url: SITE,
+      image: `${SITE}/appoploo_hero_v2_1769691119605.png`,
+      logo: `${SITE}/logo.png`,
+      telephone: "+30-2616-008286",
+      email: "info@appoploo.com",
+      priceRange: "$$",
+      address,
+      geo: { "@type": "GeoCoordinates", ...geo },
+      areaServed: [
+        { "@type": "Country", name: "Greece" },
+        { "@type": "Place", name: "Mediterranean" },
+        { "@type": "Place", name: "Worldwide" },
+      ],
+      parentOrganization: { "@id": `${SITE}/#organization` },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      url: SITE,
+      name: "Appoploo",
+      publisher: { "@id": `${SITE}/#organization` },
+      inLanguage: "en",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Appoploo Tracker",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web, iOS, Android",
+      url: "https://tracker.appoploo.com",
+      description:
+        "Real-time vessel tracking with voyage history, speed and battery monitoring and global coverage — for commercial and recreational fleets.",
+      publisher: { "@id": `${SITE}/#organization` },
+      offers: {
+        "@type": "Offer",
+        price: "29",
+        priceCurrency: "USD",
+        description: "From $29/month",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Appoploo YMS",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      url: "https://yms.appoploo.com",
+      description:
+        "End-to-end yacht management — vessels, crew, bookings, expenses and maintenance with a public booking page, in one dashboard.",
+      publisher: { "@id": `${SITE}/#organization` },
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />
