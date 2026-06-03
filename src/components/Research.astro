@@ -15,64 +15,6 @@ const featured = {
     "University of Thessaly",
   ],
 };
-
-const games = [
-  {
-    title: "CP Flood",
-    tagline: "Escape the Flood",
-    description:
-      "3D civil-protection game. Decode cryptic phone calls to locate flood hazards and deploy countermeasures before the next storm.",
-    image: "/cp-flood.webp",
-    tag: "Flood Response",
-    url: "https://fire-esc.vercel.app/",
-    color: "flood",
-    stack: ["Babylon.js", "Havok", "Astro"],
-  },
-  {
-    title: "CP Volcano",
-    tagline: "Make the right decision",
-    description:
-      "Tactical volcano-hazard training. Temperature alerts, location markers and riddle-driven objectives across a volcanic terrain.",
-    image: "/cp-volcano.webp",
-    tag: "Volcanic Hazards",
-    url: "https://cp-volcano.vercel.app/",
-    color: "volcano",
-    stack: ["Babylon.js", "WebGPU", "Astro"],
-  },
-  {
-    title: "CP Ranger",
-    tagline: "First-response training",
-    description:
-      "Immersive 3D training for civil-protection rangers — navigate the city, identify hazards and respond within the clock.",
-    image: "/cp-ranger.webp",
-    tag: "Field Response",
-    url: null,
-    color: "ranger",
-    stack: ["Babylon.js", "Havok", "Astro"],
-  },
-  {
-    title: "CP Ranger 2",
-    tagline: "Next-gen response",
-    description:
-      "Iteration of the Ranger series with refined controls, extended scenarios and a richer mission system.",
-    image: "/cp-ranger-2.webp",
-    tag: "Field Response · v2",
-    url: null,
-    color: "ranger",
-    stack: ["Babylon.js", "Havok", "Tone.js"],
-  },
-  {
-    title: "SOS City",
-    tagline: "Medical emergencies RPG",
-    description:
-      "A 3D educational RPG where you play a CP Ranger responding to medical emergencies — solve riddles, locate patients, apply first aid.",
-    image: null,
-    tag: "Emergency Medicine",
-    url: null,
-    color: "sos",
-    stack: ["Babylon.js", "React", "Gemini AI"],
-  },
-];
 ---
 
 <section id="research" class="research">
@@ -86,9 +28,8 @@ const games = [
         <strong>serious games.</strong>
       </h2>
       <p class="section-lead">
-        We build immersive 3D platforms that teach — for civil protection,
-        cultural heritage and emergency response. Funded research, real
-        deployments.
+        We build immersive, gamified 3D experiences — blending Greek cultural
+        heritage with digital technology. Funded research, real deployments.
       </p>
     </div>
 
@@ -126,86 +67,6 @@ const games = [
       </div>
     </article>
 
-    <div class="games-divider">
-      <span class="divider-label">Civil Protection · Serious Games</span>
-    </div>
-
-    <div class="games-grid">
-      {
-        games.map((game, i) => (
-          <article
-            class={`game-card fade-up ${game.color}`}
-            style={`animation-delay: ${i * 0.05}s`}
-          >
-            <div class="game-visual">
-              {game.image ? (
-                <img src={game.image} alt={game.title} loading="lazy" />
-              ) : (
-                <div class={`game-placeholder placeholder-${game.color}`}>
-                  <div class="placeholder-grid" />
-                  <div class="placeholder-icon">
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3" />
-                      <path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4" />
-                      <circle cx="20" cy="10" r="2" />
-                    </svg>
-                  </div>
-                </div>
-              )}
-              <div class="game-overlay" />
-              <div class={`game-accent accent-${game.color}`}></div>
-              <span class={`game-tag tag-${game.color}`}>{game.tag}</span>
-              {game.url ? (
-                <a
-                  href={game.url}
-                  class="game-play"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={`Play ${game.title}`}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  <span class="play-label">Play</span>
-                </a>
-              ) : (
-                <span class="game-wip">
-                  <span class="wip-dot"></span>
-                  WIP
-                </span>
-              )}
-            </div>
-
-            <div class="game-content">
-              <div class="game-header">
-                <h4 class="game-title">{game.title}</h4>
-                <p class="game-tagline">{game.tagline}</p>
-              </div>
-              <p class="game-desc">{game.description}</p>
-              <div class="game-footer">
-                <div class="stack-chips">
-                  {game.stack.map((tech) => (
-                    <span class="stack-chip">{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </article>
-        ))
-      }
-    </div>
   </div>
 </section>
 
@@ -286,7 +147,6 @@ const games = [
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 20px;
-    margin-bottom: 4rem;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
