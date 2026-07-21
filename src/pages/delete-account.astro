@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const supportEmail = "info@appoploo.com";
+---
+
+<Layout
+  title="Delete Your Account | Appoploo"
+  description="How to delete your Appoploo account and the personal data associated with it — from within the app or by request. Οδηγίες διαγραφής λογαριασμού Appoploo."
+>
+  <Header />
+  <main class="legal-content">
+    <!-- English -->
+    <section lang="en">
+      <h1>Delete your Appoploo account</h1>
+      <p>
+        This page explains how to delete your Appoploo account and the data
+        associated with it.
+      </p>
+
+      <h2>Delete from the app</h2>
+      <ol>
+        <li>Open the Appoploo app and sign in.</li>
+        <li>Go to the <strong>Account</strong> tab.</li>
+        <li>
+          Tap <strong>Delete account</strong> and confirm. Your account is
+          deleted immediately and you are signed out.
+        </li>
+      </ol>
+
+      <h2>Request deletion without the app</h2>
+      <p>
+        If you can't access the app, email us from your account's email address
+        at <a href={`mailto:${supportEmail}?subject=Delete%20my%20account`}
+          >{supportEmail}</a
+        > with the subject "Delete my account". We will verify and process your
+        request within 30 days.
+      </p>
+
+      <h2>What is deleted</h2>
+      <ul>
+        <li>Your user account and login credentials.</li>
+        <li>Your profile details (name, contact and billing information).</li>
+      </ul>
+
+      <h2>What may be retained</h2>
+      <p>
+        We may retain limited records where required for legal, tax, security or
+        fraud-prevention purposes, for as long as the law requires; these are
+        not used to identify you for any other purpose and are deleted when no
+        longer needed.
+      </p>
+    </section>
+
+    <hr class="lang-divider" />
+
+    <!-- Ελληνικά -->
+    <section lang="el">
+      <h1>Διαγραφή του λογαριασμού σας στο Appoploo</h1>
+      <p>
+        Η σελίδα αυτή εξηγεί πώς να διαγράψετε τον λογαριασμό σας στο Appoploo
+        και τα δεδομένα που σχετίζονται με αυτόν.
+      </p>
+
+      <h2>Διαγραφή μέσα από την εφαρμογή</h2>
+      <ol>
+        <li>Ανοίξτε την εφαρμογή Appoploo και συνδεθείτε.</li>
+        <li>Πηγαίνετε στην καρτέλα <strong>Λογαριασμός</strong>.</li>
+        <li>
+          Πατήστε <strong>Διαγραφή λογαριασμού</strong> και επιβεβαιώστε. Ο
+          λογαριασμός σας διαγράφεται άμεσα και αποσυνδέεστε.
+        </li>
+      </ol>
+
+      <h2>Αίτημα διαγραφής χωρίς την εφαρμογή</h2>
+      <p>
+        Αν δεν έχετε πρόσβαση στην εφαρμογή, στείλτε μας email από τη διεύθυνση
+        email του λογαριασμού σας στο <a
+          href={`mailto:${supportEmail}?subject=%CE%94%CE%B9%CE%B1%CE%B3%CF%81%CE%B1%CF%86%CE%AE%20%CF%84%CE%BF%CF%85%20%CE%BB%CE%BF%CE%B3%CE%B1%CF%81%CE%B9%CE%B1%CF%83%CE%BC%CE%BF%CF%8D%20%CE%BC%CE%BF%CF%85`}
+          >{supportEmail}</a
+        > με θέμα «Διαγραφή του λογαριασμού μου». Θα επαληθεύσουμε και θα
+        ολοκληρώσουμε το αίτημα εντός 30 ημερών.
+      </p>
+
+      <h2>Τι διαγράφεται</h2>
+      <ul>
+        <li>Ο λογαριασμός χρήστη και τα διαπιστευτήρια σύνδεσης.</li>
+        <li>Τα στοιχεία του προφίλ σας (όνομα, στοιχεία επικοινωνίας και χρέωσης).</li>
+      </ul>
+
+      <h2>Τι ενδέχεται να διατηρηθεί</h2>
+      <p>
+        Ενδέχεται να διατηρήσουμε περιορισμένα αρχεία όπου απαιτείται για
+        νομικούς, φορολογικούς λόγους ή για λόγους ασφάλειας και πρόληψης απάτης,
+        για όσο διάστημα απαιτεί ο νόμος· δεν χρησιμοποιούνται για την ταυτοποίησή
+        σας για κανέναν άλλο σκοπό και διαγράφονται όταν δεν χρειάζονται πλέον.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 120px 20px 60px;
+    font-family: inherit;
+    line-height: 1.6;
+    color: var(--text-color, #e5e7eb);
+  }
+  .legal-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--heading-color, #ffffff);
+  }
+  .legal-content h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--heading-color, #ffffff);
+  }
+  .legal-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  .legal-content ol,
+  .legal-content ul {
+    margin: 0 0 1rem;
+    padding-left: 1.5rem;
+  }
+  .legal-content li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  .legal-content strong {
+    color: var(--subheading-color, #d1d5db);
+    font-weight: 600;
+  }
+  .legal-content a {
+    color: #60a5fa;
+    text-decoration: none;
+  }
+  .legal-content a:hover {
+    text-decoration: underline;
+  }
+  .lang-divider {
+    margin: 3.5rem 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+</style>
